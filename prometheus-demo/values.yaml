@@ -1,0 +1,35 @@
+prom:
+  fullnameOverride: prom
+  image:
+    repository: ghcr.io/hongchaodeng/prometheus
+    tag: main
+  imagePullSecrets:
+  - name: prometheus-demo-docker
+  ingress:
+    className: nginx
+    enabled: true
+    hosts:
+    - host: prometheus-demo-tepkrkcvh.forkmain.cloud
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+  nocalhost:
+    command:
+      debug:
+      - ""
+      run:
+      - ""
+    configPath: conf/nocalhost.yaml
+    env: null
+    gitURL: https://github.com/hongchaodeng/prometheus.git
+    hotReload: false
+    image: null
+    language: null
+    patches: null
+    persistentVolumeDirs:
+    - capacity: 20Gi
+      path: /home/nocalhost-dev
+    remoteDebugPort: 9009
+  service:
+    port: 9090
+    targetPort: 9090
