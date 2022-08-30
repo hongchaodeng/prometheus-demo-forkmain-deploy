@@ -2,23 +2,23 @@ prom:
   fullnameOverride: prom
   image:
     repository: ghcr.io/hongchaodeng/prometheus
-    tag: main
+    tag: 1efff5d
   imagePullSecrets:
-  - name: prometheus-demo-docker
+    - name: prometheus-demo-docker
   ingress:
     className: nginx
     enabled: true
     hosts:
-    - host: wzw-env-prometheus-demo-kfbj44d2p.forkmain.cloud
-      paths:
-      - path: /
-        pathType: ImplementationSpecific
+      - host: wzw-env-prometheus-demo-kfbj44d2p.forkmain.cloud
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
   nocalhost:
     command:
       debug:
-      - ""
+        - ""
       run:
-      - ""
+        - ""
     configPath: conf/nocalhost.yaml
     env: null
     gitURL: https://github.com/hongchaodeng/prometheus.git
@@ -27,8 +27,8 @@ prom:
     language: null
     patches: null
     persistentVolumeDirs:
-    - capacity: 20Gi
-      path: /home/nocalhost-dev
+      - capacity: 20Gi
+        path: /home/nocalhost-dev
     remoteDebugPort: 9009
   service:
     port: 9090
